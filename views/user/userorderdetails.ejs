@@ -1,0 +1,75 @@
+<% if(id){ %>
+  <%-include('../layouts/userloggedinheader.ejs')  %>
+  <% }else{ %>
+    <%-include('../layouts/userheader.ejs')  %>
+    <% } %>
+
+
+<div class="dashboard">
+    <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-12 col col-md-8 col-sm-6 col-xs-2">
+        
+        <h3 class="h3order">Order Details</h3>
+        <br>
+
+        <a class="btn btn-primary" href="/loaddashboard" style="margin-bottom: 30px;">Go Back</a>
+          <table id="myTable" class="table	">
+              <thead>
+                <tr>
+                  
+                  <th >OrderId</th>
+                 <th> </th>
+                  <th >Time</th>
+                  <th >Payment</th>
+                  <th >Status</th>
+                  <th >Actions</th>  
+                  <th>View Order</th>
+                </tr>
+              </thead>
+              <% if(id){ %> 
+              <% for(let key of userorders){ %>
+                <% if(userorders.length > 0){ %> 
+                
+              <tbody>  
+                <tr>
+                  
+                    <td><%= key._id %></td>
+                    <td><%= key.name %></td>
+                    <td><%= key.createdAt.toDateString() %></td>
+                    <td><%= key.payment %></td>
+                    <td><%= key.status %></td>
+                    <% if(key.status ==='Delivered'){ %>
+                      <td><p style="color:crimson;font-weight: bolder;">Delivered</p></td>
+                      <% }else if(key.status ==='Cancelled'){ %>
+                        <td><p style="color:crimson;font-weight: bolder;">Cancelled</p></td>
+                        <% }else if(key.status ==='Returned'){ %>
+                          <td><p style="color:crimson;font-weight: bolder;">Returned</p></td>
+                          <% }else if(key.status ==='Return request recieved'){ %>
+                            <td><p style="" class="text-warning"> Return Request Pending</p></td>
+                    <% }else{ %>
+                  <td><a href="/cancelOrder?id=<%= key._id %>" class="btn btn-danger" onclick="deletecontent()">Cancel Order</a></td>
+                  <% } %>
+                  <td><a href="/viewOrder?id=<%= key._id %>" class="btn btn-info">View Details</a></td>
+                </tr>
+              </tbody>
+              <% }else{ %> 
+                <p>No order has been made yet.</p>
+                <% } %> 
+              <% } %>
+            </table>
+      
+
+    
+
+        <% }else{ %> 
+            <h4>please login....</h4>
+        <% } %> 
+        <a href="/loaduserproducts" style="margin-bottom: 30px;" class="btn btn-info"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
+    </div>
+</div>
+</div>
+
+</div>
+
+<%-include('../layouts/userfooter.ejs')  %> 

@@ -1,0 +1,86 @@
+<% if(id){ %>
+  <%-include('../layouts/userloggedinheader.ejs')  %>
+  <% }else{ %>
+    <%-include('../layouts/userheader.ejs')  %>
+    <% } %> 
+<div class="container">
+    
+<div class="accmain" id="" role="tabpanel" aria-labelledby="tab-account-link">
+    <form action="/SaveUserAccount" method="post" onsubmit="return validateForm()">
+        <h4 style="margin-left: 450px; padding-bottom: 40px;text-decoration: underline;font-weight: 900;font-size:xx-large;">Account Details </h4>
+        <a class="btn btn-primary" href="/loaduserdata" >Go Back</a> 
+    
+        <div class="row" style="padding-top: 40px;">
+            
+        </div><!-- End .row -->
+
+        <label>Display Name *</label>
+        <input type="text" class="form-control" name="name" required>
+        <small class="form-text">This will be how your name will be displayed in the account section and in reviews</small>
+        <br>
+        <label>Email address *</label>
+        <input type="email" class="form-control" name="email" required>
+        <br>
+        <label>Phone Number *</label>
+        <input type="number" class="form-control" name="mobile" required>
+        <br>
+         <br>    
+        <br>
+
+        <button type="submit" class="btn btn-success">
+            <span>SAVE CHANGES</span>
+            <i class="ti-arrow-right"></i>
+        </button>
+        <a class="btn btn-info" href="/loadPasswordSetting">Change password</a>
+    </form>
+
+
+
+    <script>
+        function validateForm() {
+          var name = document.forms["myForm"]["name"].value;
+          var email = document.forms["myForm"]["email"].value;
+          var currentPassword = document.forms["myForm"]["password1"].value;
+          var newPassword = document.forms["myForm"]["password2"].value;
+          var confirmPassword = document.forms["myForm"]["password3"].value;
+      
+          if (name == "") {
+            alert("Please enter your display name");
+            return false;
+          }
+      
+          if (email == "") {
+            alert("Please enter your email address");
+            return false;
+          }
+      
+          if (currentPassword == "" && newPassword != "") {
+            alert("Please enter your current password");
+            return false;
+          }
+      
+          if (newPassword != confirmPassword) {
+            alert("New passwords do not match");
+            return false;
+          }
+      
+          return true;
+          console.log(validateForm)
+        }
+      </script>
+      
+      
+      
+      
+      
+      
+    <br>
+    <br>
+    <br>
+    
+
+</div>
+
+</div>
+
+<%-include('../layouts/userfooter.ejs')  %>

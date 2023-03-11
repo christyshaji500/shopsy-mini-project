@@ -1,0 +1,350 @@
+<!-- 
+
+<h1>Registeration Form</h1>
+
+<form action="" method="post">
+    <input type="text" name="name" placeholder="Enter Name" id="name"> 
+    <br><br>
+    <input type="email" name="email" placeholder="Enter Email" id="email">
+    <br><br>
+    <input type="password" name="password" placeholder="Enter Password">
+    <br><br>
+    <input type="password" name="password2" placeholder="Conform Password">
+    <br><br>
+    <input type="submit" value="submit" >-->
+
+<!-- </form>
+<
+  kk -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <!-- Title  -->
+  <title>Chris Cart | Home</title>
+
+  <!-- Favicon  -->
+  <link rel="icon" href="img/core-img/favicon.ico">
+
+  <!-- Core Style CSS -->
+  <link rel="stylesheet" href="css/core-style.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="validation/validation.js"></script>
+  <!-- Responsive CSS -->
+  <link href="css/responsive.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- <script type="text/javascript" src="magiczoom/magiczoom.js"></script> -->
+  <!-- <script src="validation.js"></script> -->
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    
+  <div class="gradient-custom">
+<form class="formregister" id="formregister" action="/verifyregister" method="post">
+ 
+
+  <section class="vh-100 ">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card text-white" style="border-radius: 1rem; background-color: #eb6070; border-color: black;"">
+            <div class="card-body p-5 text-center">
+              <span class="text-danger"><% if(typeof message !== 'undefined'){%>
+  
+                <p style="color: rgb(11, 7, 7);font-size:xx-large;text-decoration: underline; " ><%= message %></p>
+                <%}%></span>
+              <div class="md-5 mt-md-4 ">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">Shopsy Signup</h2>
+              <p class="text-white-50 mb-5">New to Site, Create an Account and Explore!</p>
+
+                <div class=" input-control  form-outline form-white mb-4">
+                  <input type="text" id="username" name="name" class="form-control form-control-lg" />
+                  <label class="form-label" style="padding-left: 80px;" for="username">Username</label>
+                <small>Error message</small>
+              </div>
+
+                <div class="input-control form-outline form-white mb-4">
+                  <input type="number" id="number" name="mobile" class="form-control form-control-lg" />
+                  <label class="form-label" style="padding-left: 80px;" for="number">Phone Number</label>
+                  <small>Error message</small>
+                  
+                </div>
+
+                <div class="input-control form-outline form-white mb-4">
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" style="padding-left: 80px;" for="email"> Your Email </label>
+                  <small>Error message</small>
+                  
+                </div>
+
+
+                <div class="input-control form-outline form-white mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" style="padding-left: 80px;" for="password">Password</label>
+                  <small>Error message</small>
+                  
+                </div>
+
+                <div class="input-control form-outline form-white mb-4">
+                  <input type="password" id="password2" name="password2" class="form-control form-control-lg" />
+                  <label class="form-label" style="padding-left: 80px;" for="password">Confirm Password</label>
+                  <small>Error message</small>
+                  
+                </div>
+  
+                <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
+  
+                <button class="btn btn-outline-light btn-lg px-5" id="submit" type="submit">Sign Up</button>
+  
+                <div class="d-flex justify-content-center text-center mt-0 pt-1">
+                     </div>
+  
+                <p class="mb-0" style="color: aliceblue;">Already Have an Account in Shopsy?- <a href="/login" class="text-white-50 fw-bold">Log In</a>
+                </p>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </form>
+</div>
+
+
+<style>
+.input-control small{
+  visibility: hidden;
+}
+.input-control.error small{
+  color: red;
+  visibility: visible;
+}
+.gradient-custom {
+  padding-bottom: 150px;
+/* fallback for old browsers */
+background: #6a11cb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgb(206, 193, 220), rgb(224, 21, 24));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgb(230, 132, 132), rgb(250, 122, 122))
+}
+/* .formregister{
+  color: rgb(251, 249, 249);
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,117,121,1) 35%, rgba(0,212,255,1) 100%);
+width: 30%;
+} */
+
+</style>
+
+<script src="/public/validation/validation.js"></script>
+</body>
+
+
+
+
+
+
+<!-- <script>
+ var nameError = document.getElementById('name-error');
+    var phoneError = document.getElementById('phone-error');
+    var emailError = document.getElementById('email-error');
+    var passwordError = document.getElementById('password-error');
+    var passwordError_two = document.getElementById('password-error_two');
+    var submitError = document.getElementById('submit-error');
+
+    function validateName() {
+        var name = document.getElementById('contact-name').value;
+
+        if (name.length == 0) {
+            nameError.innerHTML = 'Name is required';
+            return false;
+        } -->
+        <!-- // if (!name.match(/^[A-Za-z]\s{1}[A-Za-z]$/)) {
+        //     nameError.innerHTML = 'Write full Name';
+        //     return false;
+        // } -->
+        <!-- if ((name.length <= 2) || (name.length > 20)) {
+      nameError.innerHTML =
+        "User length must be between 3 and 20";
+      return false;
+        }
+        nameError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    } -->
+
+    <!-- function validatePhone() {
+        var phone = document.getElementById('phone-no').value;
+
+        if (phone.length == 0) {
+            phoneError.innerHTML = 'Phone no is required';
+            return false;
+        }
+        // if (phone.length !== 10) {
+        //     phoneError.innerHTML = 'Phone no should be 10 digits';
+        //     return false;
+        // }
+        if (!phone.match(/^[0-9]{10}$/)) {
+            phoneError.innerHTML = 'only digits please';
+            return false;
+        }
+
+        phoneError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    }
+
+    function validateEmail() {
+        var email = document.getElementById('contact-email').value;
+
+        if (email.length == 0) {
+            emailError.innerHTML = 'Email is required';
+            return false;
+        }
+        // if (!email.match(/^[A-Za-z\._\-[0-9][@][A-Za-z][\.][a-z]{2,4}$/)) {
+        //     emailError.innerHTML = 'Email is invalid';
+        //     return false;
+        // }
+        emailError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    }
+
+    function validatePassword() {
+        var password = document.getElementById('password').value;
+        var password_two = document.getElementById('password_two').value;
+
+        if (password.length == 0) {
+            passwordError.innerHTML = 'password empty';
+            return false;
+        }
+        if (password_two != password) {
+          document.getElementById('password-error_two').innerHTML =
+            "Password are not matching";
+          return false;
+        }
+        
+        passwordError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+        
+    }
+
+
+    function validateForm() {
+        if (!validateName() || !validatePhone() || !validateEmail() || !validatePassword()) {
+            submitError.style.display = 'block';
+            submitError.innerHTML = 'Please fill all field';
+            setTimeout(function () { submitError.style.display = 'none' }, 3000)
+            return false;
+        }
+    }
+
+
+</script>
+ -->
+
+
+<!-- <script type="text/javascript">
+
+  function validation() {
+    var user = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var mno = document.getElementById('phone-no').value;
+    var password = document.getElementById('password').value;
+    var password2 = document.getElementById('password2').value;
+
+
+
+
+    if (user == "") {
+      document.getElementById('name1').innerHTML =
+        "Please fill the username field";
+      return false;
+    }
+    if ((user.length <= 2) || (user.length > 20)) {
+      document.getElementById('name1').innerHTML =
+        "User length must be between 3 and 20";
+      return false;
+    }
+    if (!isNaN(user)) {
+      document.getElementById('name1').innerHTML =
+        "Only characters are allowed";
+      return false;
+    }
+
+
+    if (email == "") {
+      document.getElementById('email1').innerHTML =
+        "please fill the email field";
+      return false;
+    }
+    if (email.indexOf('@') <= 0) {
+      document.getElementById('email1').innerHTML =
+        "Invalid '@' position ";              
+      return false;
+    }
+    if ((email.charAt(email.length - 4) != '.') &&
+      (email.charAt(email.length - 3) != '.')) {
+      document.getElementById('email1').innerHTML =
+        "Invalid '.' position ";
+      return false;
+    }
+
+    if (mno == "") {
+      document.getElementById('mobile1').innerHTML =
+        "please fill the mobile number field";
+      return false;
+    }
+    if (isNaN(mno)) {
+      document.getElementById('mobile1').innerHTML =
+        "Must write digits only not characters";
+      return false;
+    }
+    if (mno.length != 10) {
+      document.getElementById('mobile1').innerHTML =
+        "Must be 10 digits ";
+      return false;
+    }
+
+
+    if (password == "") {
+      document.getElementById('passwords').innerHTML =
+        "please fill the password field";
+      return false;
+    }
+    if ((password.length < 5) || (password.length > 10)) {
+      document.getElementById('passwords').innerHTML =
+        "Password length must be between 5 and 10";
+      return false;
+    }
+
+    if (password2 == "") {
+      document.getElementById('conpasswords').innerHTML =
+        "please fill the confirm password field";
+      return false;
+    }
+    if (password2 != password) {
+      document.getElementById('conpasswords').innerHTML =
+        "Password are not matching";
+      return false;
+    }
+  }
+</script> -->
+
+

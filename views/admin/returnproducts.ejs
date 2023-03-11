@@ -1,0 +1,74 @@
+<%-include('../layouts/adminheader.ejs')  %>
+<div class="container">
+    <h3 style="margin-left: 40%;padding-bottom: 10px; ">Return Product   </h3>
+    
+
+<table id="myTab" class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Quantity </th>
+        <th>Total Price</th>
+        <!-- <th>Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+        <% for(i=0;i<order.products.item.length;i++){ %>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            
+            <img
+                src="/admin/multer/img/<%=order.products.item[i].productId.image[0]  %>"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+                
+            <div class="ms-3">
+              <p class="fw-bold mb-1 ml-3"><%=order.products.item[i].productId.name %></p>
+              <p class="text-muted mb-0 ml-3">Price:₹<%=order.products.item[i].price%></p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1"><%=order.products.item[i].productId.category %></p>
+          <p class="text-muted mb-0"></p>
+        </td>
+        <td>
+            <div>
+                <p class="text-muted mb-0 ml-3"><%=order.products.item[i].qty %></p>
+            </div>
+        </td>
+        <td>
+            <p class="text-muted mb-0 ml-3">₹<%=order.products.item[i].qty*order.products.item[i].productId.price %></p>
+        </td>
+         <td>
+            <!-- <form action=""> -->
+                
+        <!-- </form> -->
+        </td>
+        
+      </tr>
+      <p class="text-dark" style="font-weight: bolder; text-decoration: underline; font-size:x-large;">Return Product</p>
+      <a href="/admin/AdminReturnProduct?id=<%= order.products.item[i].productId._id%>" class="btn btn-success">Yes</a>
+      <a href="/admin/AdminNoReturn?id=<%= order._id %>" class="btn btn-danger" style="margin-left: 20px;">No</a>
+
+      <%  }%>
+     
+    </tbody>
+    <div>
+    <a class="btn btn-info" href="/admin/orderdetails" style="margin-top: 40px;">Go Back</a>
+  </div>
+    <footer>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </footer>
+  </table>
+  </div>
+
+<%-include('../layouts/adminfooter.ejs')  %>

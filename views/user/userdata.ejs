@@ -1,0 +1,127 @@
+<% if(id){ %>
+  <%-include('../layouts/userloggedinheader.ejs')  %>
+  <% }else{ %>
+    <%-include('../layouts/userheader.ejs')  %>
+    <% } %>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" id="navdash">
+       <ul class="navbar-nav">
+        <li class="">
+            <a class=" "  style="padding: 20px;" aria-current="page" href="/UserProfileOrder">My Orders</a>
+          </li>
+          <li class="">
+            <a class=" " style="padding: 20px;"  aria-current="page" href="/BuyAgain">BuY Again</a>
+          </li>
+          <li class="">
+            <a class="" style="padding: 20px;"  href="/accountdetails">Edit profile</a>
+          </li>
+          <a class=" btn btn-primary d-flex justify-content-center" style="margin-bottom: 35px;" href="/loaddashboard">Go Back</a>
+            
+          
+          <!-- <li class="nav-item">
+            <a class=""  style="padding: 20px;" href="#">Sales Report</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class=" " style="padding: 20px;" >Disabled</a>
+          </li> -->
+        </ul>
+        
+      </div>
+      
+    </div>
+    
+  </nav>
+  
+  <style>
+   
+/* body{
+  font-family: 'Poppins', sans-serif;
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+} */
+#profcard{
+    /* padding-left: 20%; */
+    padding-top: 50px;
+    padding-bottom:50px;
+}
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+
+.card .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card .text img{
+    height: 170px;
+    border-radius: 50%;
+  margin-bottom:10px;
+}
+
+.card .text h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.card .text p:nth-of-type(1){
+    color: rgb(35, 182, 219);
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.card .text p:nth-of-type(2){
+    margin: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.card .links{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card .links i{
+    color: rgb(35, 182, 219);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.card .links i:hover{
+    color:rgb(29, 157, 189) ;
+}
+  </style>
+  
+<div class="container d-flex justify-content-center" id="profcard">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <div class="card">
+            <div class="text">
+                <img src="https://www.nautec.com/wp-content/uploads/2018/04/placeholder-person.png" alt="">
+                <h3><%=user.name%></h3>
+                <p>phone:<%=user.mobile%></p>
+                <p>
+                   Email:<%=user.email  %>
+                </p>
+            </div>
+            <div class="links">
+                <a target="_blank" href="https://codepen.io/l-e-e/"></i></a>
+                <a target="_blank" href="https://github.com/Leena26"></a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCPOyUi82bRcPTdpDuSHVNbw"></i></a>
+            </div>
+        </div>
+    </div>
+
+<%-include('../layouts/userfooter.ejs')  %>

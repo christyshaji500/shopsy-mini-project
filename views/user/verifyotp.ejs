@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- <section style="height: 100vh;   background-color: #111927;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);">
+    <section class="vh-100 gradient-custom" style="">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card  text-white" style="border-radius: 1rem;  backdrop-filter: blur(6px) saturate(117%);
+    -webkit-backdrop-filter: blur(6px) saturate(117%);
+    background-color: rgba(17, 25, 40, 0.48);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);">
+          <div class="card-body p-5 text-center">
+          <div class="mb-md-5 mt-md-4 pb-5" > 
+            <form action="/veriftyotp" method="post">
+            <h2 class="fw-bold mb-2 text-uppercase"></h2>
+              <p class="text-white-50 mb-5">
+                <%if(typeof message !== 'undefined'){ %>
+                    <h4><%= message %></h4>
+               <% } %>
+              </p>
+                <div class="form-outline form-white mb-4">
+                <input type="text" name="otp" style="color: #e5e1e1; background: transparent; border:solid #112c43; " id="typeEmailX" class="form-control form-control-lg" />
+                <label class="form-label" for="typeEmailX">Otp </label>
+              </div>
+              <input type="hidden" value=<%=otp%> name="checkOtp">
+              <input type="hidden" name="user" value=<%= user%>>
+               
+              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+            </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section> -->
+
+
+
+
+<form action="/verifyotp" method="post" class="my-auto" style="height: 90vh;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card bg-transparent" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><span class="text-main-1">OTP</span> Verification</p>
+
+                                <form class="mx-1 mx-md-4">
+    
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                      <div class="form-outline flex-fill mb-0">
+                                        <label class="form-label" for="form3Example3c">OTP</label>
+                                        <input type="number" id="form3Example3c" class="form-control" name="otp" required/> 
+                                      </div>
+                                    </div>
+                  
+                                    <div class="row vertical-gap">
+                                        <div class="col-md-6">
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <input type="hidden" name="checkOtp" value="<%= otp %>">
+                                                <input type="hidden" name="user" value="<%= user %>">
+                                                <button type="submit" value="Register" class="btn btn-primary btn-lg">Confirm</button>
+                                               <div> <h6 class="m-0 text-dark mt-3"><span id="timer">Time Left: 1:00</span>
+                                                <a href="/verifyotp" id="resend-link" class="d-none">Resend OTP</a></h6></div>
+                                              </div>
+                                        </div>
+                                    <%
+                                    if(typeof message !== 'undefined'){ %>
+                                        <h4><%= message %></h4>
+                                   <% } %>
+                            
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    // Set the countdown duration in seconds
+    const countdownDuration = 60;
+    
+    // Get the timer element
+    const timerElement = document.getElementById('timer');
+    
+    // Start the countdown timer
+    let countdown = countdownDuration;
+    const intervalId = setInterval(() => {
+      countdown--;
+      const minutes = Math.floor(countdown / 60);
+      const seconds = countdown % 60;
+      timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      if (countdown === 0) {
+        // Stop the countdown timer
+        clearInterval(intervalId);
+    
+        // Hide the timer element
+        timerElement.style.display = 'none';
+    
+        // Show the "Resend OTP" link
+        const resendLinkElement = document.getElementById('resend-link');
+        resendLinkElement.classList.remove('d-none');
+      }
+    }, 1000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  </body>
+</html>

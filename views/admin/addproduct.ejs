@@ -1,0 +1,285 @@
+<%- include ('../layouts/adminheader.ejs') %>
+<!-- Dashboard -->
+<li class="menu-item active">
+  <a href="/admin/dashboard" class="menu-link">
+    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+    <div data-i18n="Analytics">Dashboard</div>
+  </a>
+</li>
+
+<li class="menu-item">
+  <a href="/admin/loadadminuser" class="menu-link">
+    
+    <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+    <div data-i18n="Basic">User List</div>
+  </a>
+</li>
+
+<li class="menu-item">
+  <a href="/admin/loadadminProduct" class="menu-link">
+    
+    <i class="menu-icon tf-icons bx bxl-shopify"></i>
+    <div data-i18n="Basic">Product Details</div>
+  </a>
+</li>
+
+
+<li class="menu-item">
+  <a href="/admin/loadCategory" class="menu-link">
+    <i class="menu-icon tf-icons bx bx-table"></i>
+    <div data-i18n="Analytics">Category</div>
+  </a>
+</li>
+
+
+<li class="menu-item ">
+  <a href="/admin/offer" class="menu-link">
+    <i class="menu-icon tf-icons bx bx-gift"></i>
+    <div data-i18n="Analytics">Offers</div>
+  </a>
+</li>
+  
+<li class="menu-item ">
+  <a href="/admin/loadbanner" class="menu-link">
+    <i class="menu-icon tf-icons bx bxl-kubernetes"></i>
+    <div data-i18n="Analytics">Banner</div>
+  </a>
+</li>
+
+<li class="menu-item ">
+  <a href="/admin/orderdetails" class="menu-link">
+    <i class="menu-icon tf-icons bx bxs-calendar-week"></i>
+    <div data-i18n="Analytics">Order Report</div>
+  </a>
+</li>
+<li class="menu-item ">
+  <a href="/admin/salesReport" class="menu-link">
+    <i class="menu-icon tf-icons bx bxs-dollar-circle"></i>
+    <div data-i18n="Analytics">Sales Report</div>
+  </a>
+</li>
+
+<form name="myForm"  action="/admin/addproduct" method="post" class="my-auto" style="height: 90vh;" enctype="multipart/form-data">
+  <div class="container h-100 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card bg-transparent" style="border-radius: 25px;">
+          <div class="card-body p-md-2">
+            <div class="row justify-content-center">
+              <div class="col-md-2 col-lg-6 col-xl-5 order-2 order-lg-1 width-50">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add<span class="text-main-1">Product</span></p>
+                <% if(typeof message !== 'undefined'){%>
+                  <p style="color:green; font-weight: bolder;" ><%= message %></p>
+              <% } %>
+                <form class="mx-1 mx-md-2">
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">Name</label>
+                      <input type="text" id="name" class="form-control" name="sName" required/>
+                      <span id="nameError" style="color: red;"></span>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label select-label" for="form3Example1c"></label>
+                      <select name="sCategory" class="form-control" id="category" required>
+                        <option value="" disabled selected>Select a Category</option>
+                        <% if(category){ %>
+                        <% for(let i=1;i <= category.length; i++){ %>
+                          <option value="<%= category[i-1].name %>">
+                            <%= category[i-1].name %>
+                          </option>
+                          <% } %>
+                        <% }else{ %>
+                          <h1>No Categories to add</h1>
+                        <% } %>  
+                      </select>
+                      <span id="categoryError" style="color: red;"></span>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">Price</label>
+                      <input type="number" id="price" class="form-control" name="sPrice" required/>
+                      <span id="priceError" style="color: red;"></span>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4c">Quantity</label>
+                      <input type="number" id="quantity" class="form-control" name="sQuantity" min="0" max="100" required/>
+                      <span id="quantityError" style="color: red;"></span>
+                    </div>
+                  </div>
+            
+                            <div class="d-flex flex-row align-items-center mb-2">
+                                     
+                                      <div class="form-outline flex-fill mb-0">
+                                        <label class="form-label" for="form3Example4c">Description</label>
+                                        <input type="text" id="description" class="form-control" name="sDescription" required/>
+                                        <span id="descriptionError" style="color: red;"></span>
+                                      </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-2">
+                                       
+                                      <div class="form-outline flex-fill mb-0">
+                                          <label class="form-label" for="form3Example1c">Rating</label>
+                                        <input type="number" id="rating" class="form-control" name="sRating"  max="5" required/>
+                                        <span id="ratingError" style="color: red;"></span>
+                                      </div>
+                                    </div>
+
+                                    <script>
+                                      
+                                    </script>
+
+                                        <!-- <select name="genre" class="form-control">
+                                          <option value="" disabled selected>Category</option>
+                                          <option value="T-Shirt">T-shirt</option>
+                                          <option value="Shirt">Shirt</option>
+                                          <option value="Shoes">Shoes</option>
+                                          <option value="Bags">Bags</option>
+                                          <option value="watches">Watches</option>
+                                        </select> -->
+
+                                       
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                          <label class="form-label" for="form3Example4c">Image</label>
+                                          <input type="file" id="image" class="form-control" name="sImage" accept="image/*"   multiple  required/>
+                                          <span id="imageError" style="color: red;"></span>
+                                        </div>
+                                      </div>
+                                    <div class="d-flex justify-content-center mb-3 mb-lg-4" style="padding-bottom: 40px;">
+                                      <button  type="submit" value="Register" class="btn btn-primary btn-lg " style="margin-right: 20px;">Add Product</button>
+                                      <a href="/admin/loadadminProduct" class="btn btn-primary ml-2 btn-lg" >Go Back</a>
+                                    </div>
+            
+                                    
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </form>
+  
+  <style>
+    .container {
+      position: relative;
+      left: 300px;
+      width:850px;
+      bottom: 390px;
+    
+    }
+  </style>
+    <script>
+    function validateForm() {
+      // Get form inputs
+      var name = document.forms["myForm"]["name"].value.trim();
+      var category = document.forms["myForm"]["category"].value.trim();
+      var price = document.forms["myForm"]["price"].value.trim();
+      var quantity = document.forms["myForm"]["quantity"].value.trim();
+      var description = document.forms["myForm"]["description"].value.trim();
+      var rating = document.forms["myForm"]["rating"].value.trim();
+      
+    
+      // Define validation variables
+      var nameError = document.getElementById("nameError");
+      var categoryError = document.getElementById("categoryError");
+      var priceError = document.getElementById("priceError");
+      var quantityError = document.getElementById("quantityError");
+      var descriptionError = document.getElementById("descriptionError");
+      var ratingError = document.getElementById("ratingError");
+      
+      var isValid = true;
+    
+      // Validate name
+      if (name === "") {
+        nameError.textContent = "Please enter a name";
+        isValid = false;
+      } else {
+        nameError.textContent = "";
+      }
+    
+      // Validate category
+      if (category === "") {
+        categoryError.textContent = "Please select a category";
+        isValid = false;
+      } else {
+        categoryError.textContent = "";
+      }
+    
+      // Validate price
+      if (price === "") {
+        priceError.textContent = "Please enter a price";
+        isValid = false;
+      } else if (isNaN(price)) {
+        priceError.textContent = "Please enter a valid price";
+        isValid = false;
+      } else {
+        priceError.textContent = "";
+      }
+    
+      // Validate quantity
+      if (quantity === "") {
+        quantityError.textContent = "Please enter a quantity";
+        isValid = false;
+      } else if (isNaN(quantity)) {
+        quantityError.textContent = "Please enter a valid quantity";
+        isValid = false;
+      } else {
+        quantityError.textContent = "";
+      }
+    
+      // Validate description
+      if (description === "") {
+        descriptionError.textContent = "Please enter a description";
+        isValid = false;
+      } else {
+        descriptionError.textContent = "";
+      }
+    
+      // Validate rating
+      if (rating === "") {
+        ratingError.textContent = "Please enter a rating";
+        isValid = false;
+      } else if (isNaN(rating)) {
+        ratingError.textContent = "Please enter a valid rating";
+        isValid = false;
+      } else if (rating < 0 || rating > 5) {
+        ratingError.textContent = "Rating must be between 0 and 5";
+        isValid = false;
+      } else {
+        ratingError.textContent = "";
+      }
+    
+      // Validate image
+    //   if (image === "") {
+    //     imageError.textContent = "Please select an image";
+    //     isValid = false;
+    //   } else {
+    //     imageError.textContent = "";
+    //   }
+    
+      return isValid;
+    }
+    
+    // Add event listener to form submit
+    document.forms["myForm"].addEventListener("submit", function(event) {
+      if (!validateForm()) {
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+    
+    console.log(validateForm)
+
+  </script>
+    
+  </div>
+
+  <script defer src="https://cdn.crop.guide/loader/l.js?c=ZQSLCS"></script>
+
+<%- include ('../layouts/adminfooter.ejs') %>

@@ -1,0 +1,191 @@
+<% if(id){ %>
+    <%-include('../layouts/userloggedinheader.ejs')  %>
+    <% }else{ %>
+      <%-include('../layouts/userheader.ejs')  %>
+      <% } %> 
+
+ <!-- ****** Cart Area Start ****** -->
+ <div class="cart_area section_padding_1 clearfix">
+    <div class="container">
+        <div class="row">
+             
+            <div class="col-12">
+                <div class="cart-table clearfix">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <!-- <th>No.of Items</th> -->
+                                <th>Remove </th>
+                                <!-- <th>Update </th> -->
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <% if(cartproducts.totalprice){%>
+                                <% if(id) {%> 
+                                
+                                <% for(let key of cartproducts.item) {%>
+                                    
+                                        
+                            <tr>
+                                
+                                <td class="cart_product_img d-flex align-items-center">
+                                    <a href="#"><img src="/admin/multer/img/<%= key.productId.image[0] %> " alt="Product"></a>
+                                    <h6><%= key.productId.name %> </h6>
+                                </td>
+                           
+                                <td class="price"><span>₹<%= key.productId.price %> </span></td>
+                                
+                                <td class="">
+                                    <div class="quantity">
+
+                                        <input type="hidden" value="<%= key.productId._id%>">
+
+                                        <span class="qty-minus" onclick="var effect = document.getElementById(''); var fd = effect.value; if( !isNaN( ii )  &gt, 1 ) effect.value--;return false;"></span>
+
+                                        <input type="number" name="qty"  class="input-text qty" value="<%= key.qty %>" min="1" max="<%= key.productId.quantity %>" step="1" data-decimals="0" required style="height:max-content">  
+                                        
+                                        <span class="qty-plus" onclick="var effect = document.getElementById(''); var qgg = effect.value; if( !isNaN( yy )) effect.value++;return false;"> </span>
+                                  
+                                    </div>
+                                    
+                                </td>
+                                <td class="total_price"><span><h6>₹<%= key.qty*key.productId.price %> </h6></span></td>
+                                <td><a class="btn btn-danger" onclick="confirmdelete()" href="/deletecart?id=<%= key.productId._id %> " ><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a></td>
+                                <!-- <td><a class="btn btn-danger"href="/editcart?id=<%= key.productId._id %> " ><i class="fa fa-wrench fa-1x fa-fw" aria-hidden="true"></i></a></td> -->
+                                
+                            </tr>
+                            
+                            <% } %>
+                            <% }else {%>
+                                <h4>please login!.....</h4> 
+                                <% } %> 
+                            
+                                
+                        </tbody>
+                         
+                        
+                    </table>
+                    
+                        
+                </div>
+              
+                  
+                <div class="cart-footer d-flex mt-30">
+                    <div class="back-to-shop w-50">
+                        <a href="/loaduserproducts">Continue shopping</a>
+                    </div>
+                    <!-- <div class="update-checkout w-50 text-right" id="clear">
+                        <button class=""><a href="/deletefullcart" >clear cart</a></button>
+                       
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+       
+       
+
+        
+            <!-- <div class="col-12 col-md-6 col-lg-4">
+                <div class="shipping-method-area mt-70">
+                    <div class="cart-page-heading">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+
+                    <div class="custom-control custom-radio mb-30">
+                        <input type="" id="customRadio1" name="customRadio" class="custom-control-input">
+                         <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio1"><span></span><span></span></label>
+                    </div>
+
+                    <div class="custom-control custom-radio mb-30">
+                        <input type="" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <label class="" for="customRadio2"><span></span><span></span></label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input type="" id="customRadio3" name="customRadio" class="custom-control-input">
+                        <label class="" for="customRadio3"><span></span><span></span></label>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-12 col-lg-4">
+                <div class="cart-total-area mt-70">
+                    <div class="cart-page-heading">
+                        <h5>Cart total</h5>
+                        <p>Final info</p>
+                    </div>
+                    <% if(id){%>
+                    <ul class="cart-total-chart">
+                        <li><span>Subtotal</span> <span id="totalCart">₹<%= cartproducts.totalprice %> </span></li>
+                        <li><span>Shipping</span> <span>₹45</span></li>
+                        <li><span><strong>Total</strong></span> <span id="totalart"><strong >₹<%= cartproducts.totalprice +45   %></strong></span></li>
+                    </ul>
+                    <a href="/loadusercheckout" class="btn karl-checkout-btn">Proceed to checkout</a>
+                    <% } %> 
+                </div>
+            </div>
+            <% }else{ %>
+                
+                <div class="d-flex justify-content-center  "><lottie-player class="" src="https://assets6.lottiefiles.com/temp/lf20_jzqS18.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player></div>
+                <div class="card " id="cardelse">
+                <h4 class="d-flex justify-content-center flex-row container-fluid" id="elsecart">CART IS EMPTY !..PLEASE ADD SOMETHING....</h4>
+                <a id="carta" class="btn btn-info " href="/loaduserproducts">ADD ITEMS</a>
+            </div>
+                
+                <% } %>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script>
+
+    const qty = document.querySelectorAll('.qty')		   
+  const qtyHandler = async(e)=>{
+  try {
+  const productId = e.target.parentElement.children[0].value
+  const data = {qty:e.target.value}
+  if(data.qty<1){
+    throw new Error('quantity dont be less than 1')
+  }
+  console.log(data);
+    const response = await fetch(`/editcart?id=${productId}`,{
+   method:'post',
+   headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+    })
+    const value = await response.json()
+  
+   document.querySelector('#totalart').innerText = value.totalprice
+   document.querySelector('#totalCart').innerText = value.totalprice
+    // document.querySelector('#tottaloff').innerText = value.totalPrice
+   e.target.parentElement.parentElement.nextElementSibling.innerText = value.price  * e.target.value
+  } catch (error) {
+  console.log(error.message);
+  }
+  }
+  qty.forEach(q =>{
+  q.addEventListener('change',qtyHandler)
+  })
+  
+  
+   </script>
+
+<!-- ****** Cart Area End ****** -->
+
+<%-include('../layouts/userfooter.ejs')  %> 
+
+
+
+
+

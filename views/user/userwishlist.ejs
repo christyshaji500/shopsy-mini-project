@@ -1,0 +1,132 @@
+<% if(id){ %>
+    <%-include('../layouts/userloggedinheader.ejs')  %>
+    <% }else{ %>
+      <%-include('../layouts/userheader.ejs')  %>
+      <% } %> 
+
+ <!-- ****** Cart Area Start ****** -->
+ <div class="cart_area section_padding_1 clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="cart-table clearfix">
+                    
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>product</th>
+                                <th >Category</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(id){ %>
+                                
+                                <% for(let key of wishlistproducts.item){ %> 
+                            <tr>
+                                <td class="cart_product_img d-flex align-items-center">
+                                    <a href="#"><img src="/admin/multer/img/<%= key.productId.image[0] %> " alt="Product"></a>
+                                    <h6><%= key.productId.name %> </h6>
+                                </td>
+                                <td class="price "><span><%= key.productId.category %> </span></td>
+                                <td class="price"><span>₹<%= key.productId.price %> </span></td>
+                                <td class="qty">
+                                    <div class="quantity">
+                                        <span ><a class="btn btn-primary" href="/addcartdeletewishlist?id=<%= key.productId._id %> ">Add to cart</a></span>
+                                       <span ><a class="btn btn-danger ml-3" href="/deletewishlist?id=<%= key.productId._id %> " >Remove Product</a></span> 
+                                        
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <% } %>
+                           
+                            <% }else{ %>  
+                                <h4>Not Signed in. <br> Sign in now!!! </h4>
+                                <a href="/login" class="btn btn-primary ml-2">login</a>
+                                
+                                <% } %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+
+                <div class="cart-footer d-flex mt-30">
+                    <div class="back-to-shop w-50">
+                        <a href="/loaduserproducts">Continue shopping</a>
+                    </div>
+                    <!-- <div class="update-checkout w-50 text-right">
+                        <a href="#">clear cart</a>
+                        <a href="#">Update cart</a>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="coupon-code-area mt-70">
+                    <div class="cart-page-heading">
+                        <h5>Cupon code</h5>
+                        <p>Enter your cupone code</p>
+                    </div>
+                    <form action="#">
+                        <input type="search" name="search" placeholder="#569ab15">
+                        <button type="submit">Apply</button>
+                    </form>
+                </div>
+            </div> -->
+            <!-- <div class="col-12 col-md-6 col-lg-4">
+                <div class="shipping-method-area mt-70">
+                    <div class="cart-page-heading">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+
+                    <div class="custom-control custom-radio mb-30">
+                        <input type="" id="customRadio1" name="customRadio" class="custom-control-input">
+                         <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio1"><span></span><span></span></label>
+                    </div>
+
+                    <div class="custom-control custom-radio mb-30">
+                        <input type="" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <label class="" for="customRadio2"><span></span><span></span></label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input type="" id="customRadio3" name="customRadio" class="custom-control-input">
+                        <label class="" for="customRadio3"><span></span><span></span></label>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-12 col-lg-4">
+                <div class="cart-total-area mt-70">
+                    <div class="cart-page-heading">
+                        <h5>Cart total</h5>
+                        <p>Final info</p>
+                    </div>
+
+                    <ul class="cart-total-chart">
+                        <li><span>Subtotal</span> <span>$59.90</span></li>
+                        <li><span>Shipping</span> <span>Free</span></li>
+                        <li><span><strong>Total</strong></span> <span><strong>$59.90</strong></span></li>
+                    </ul>
+                    <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br> -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- ****** Cart Area End ****** -->
+
+<%-include('../layouts/userfooter.ejs')  %> 

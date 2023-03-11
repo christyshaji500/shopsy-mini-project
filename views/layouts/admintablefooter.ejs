@@ -1,0 +1,105 @@
+<!-- <script>
+
+    function validateForm() {
+      // Get form inputs
+      var name = document.forms["myForm"]["name"].value.trim();
+      var category = document.forms["myForm"]["category"].value.trim();
+      var price = document.forms["myForm"]["price"].value.trim();
+      var quantity = document.forms["myForm"]["quantity"].value.trim();
+      var description = document.forms["myForm"]["description"].value.trim();
+      var rating = document.forms["myForm"]["rating"].value.trim();
+      
+    
+      // Define validation variables
+      var nameError = document.getElementById("nameError");
+      var categoryError = document.getElementById("categoryError");
+      var priceError = document.getElementById("priceError");
+      var quantityError = document.getElementById("quantityError");
+      var descriptionError = document.getElementById("descriptionError");
+      var ratingError = document.getElementById("ratingError");
+      
+      var isValid = true;
+    
+      // Validate name
+      if (name === "") {
+        nameError.textContent = "Please enter a name";
+        isValid = false;
+      } else {
+        nameError.textContent = "";
+      }
+    
+      // Validate category
+      if (category === "") {
+        categoryError.textContent = "Please select a category";
+        isValid = false;
+      } else {
+        categoryError.textContent = "";
+      }
+    
+      // Validate price
+      if (price === "") {
+        priceError.textContent = "Please enter a price";
+        isValid = false;
+      } else if (isNaN(price)) {
+        priceError.textContent = "Please enter a valid price";
+        isValid = false;
+      } else {
+        priceError.textContent = "";
+      }
+    
+      // Validate quantity
+      if (quantity === "") {
+        quantityError.textContent = "Please enter a quantity";
+        isValid = false;
+      } else if (isNaN(quantity)) {
+        quantityError.textContent = "Please enter a valid quantity";
+        isValid = false;
+      } else {
+        quantityError.textContent = "";
+      }
+    
+      // Validate description
+      if (description === "") {
+        descriptionError.textContent = "Please enter a description";
+        isValid = false;
+      } else {
+        descriptionError.textContent = "";
+      }
+    
+      // Validate rating
+      if (rating === "") {
+        ratingError.textContent = "Please enter a rating";
+        isValid = false;
+      } else if (isNaN(rating)) {
+        ratingError.textContent = "Please enter a valid rating";
+        isValid = false;
+      } else if (rating < 0 || rating > 5) {
+        ratingError.textContent = "Rating must be between 0 and 5";
+        isValid = false;
+      } else {
+        ratingError.textContent = "";
+      }
+    
+      // Validate image
+    //   if (image === "") {
+    //     imageError.textContent = "Please select an image";
+    //     isValid = false;
+    //   } else {
+    //     imageError.textContent = "";
+    //   }
+    
+      return isValid;
+    }
+    
+    // Add event listener to form submit
+    document.forms["myForm"].addEventListener("submit", function(event) {
+      if (!validateForm()) {
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+    
+    console.log(validateForm)
+    </script>
+     -->
+</body>
+</html>

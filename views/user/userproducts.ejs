@@ -1,0 +1,465 @@
+<% if(id){ %>
+    <%-include('../layouts/userloggedinheader.ejs')  %>
+    <% }else{ %>
+      <%-include('../layouts/userheader.ejs')  %>
+      <% } %> 
+
+
+<!-- ****** Quick View Modal Area Start ****** -->
+<br>
+
+
+
+<div class="wrap">
+    <div class="search">
+<form class="d-flex justify-content-center flex-row container-fluid" >
+
+    
+       
+            <div class="d-flex justify-content-center flex-row container-fluid">
+    <input type="text" class="searchTerm " placeholder="What are you looking for?" style="width: 400px;"  name="search" >
+    <input type="submit" class="searchButton" value="search">
+    </div>
+
+
+    
+</form>
+</div>
+</div>
+<!-- <div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="What are you looking for?" name="search">
+       <button type="submit" class="searchButton" value="search">
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+ </div>-->
+  <br>
+  <br>
+  <br> 
+<div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+            <div class="modal-body">
+                <div class="quickview_body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-5">
+                                <div class="quickview_pro_img">
+                                    <img src="img/product-img/product-1.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <div class="quickview_pro_des">
+                                    <h4 class="title">Boutique Silk Dress</h4>
+                                    <div class="top_seller_product_rating mb-15">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <h5 class="price">$120.99 <span>$130</span></h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita quibusdam aspernatur, sapiente consectetur accusantium perspiciatis praesentium eligendi, in fugiat?</p>
+                                    <a href="#">View Full Product Details</a>
+                                </div>
+                                <!-- Add to Cart Form -->
+                                <form class="cart" method="get">
+                                    <div class="quantity">
+                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp, qty &gt, 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+
+                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
+
+                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    </div>
+                                    <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
+                                    <!-- Wishlist -->
+                                    <div class="modal_pro_wishlist">
+                                        <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
+                                    </div>
+                                    <!-- Compare -->
+                                    <div class="modal_pro_compare">
+                                        <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
+                                    </div>
+                                </form>
+
+                                <div class="share_wf mt-30">
+                                    <p>Share With Friend</p>
+                                    <div class="_icon">
+                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ****** Quick View Modal Area End ****** -->
+
+<section class="shop_grid_area section_padding_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="shop_sidebar_area">
+                   
+                    <div class="widget catagory mb-50">
+                        <!--  Side Nav  -->
+                        <div class="nav-side-menu">
+                            <h6 class="mb-0 ">Catagories</h6>
+                            <div class="menu-list">
+                                <ul id="menu-content2" class="menu-content collapse out">
+                                    <!-- Single Item -->
+                                    <% if(cat.length>0){ %>
+                                    <% for(let i=1;i<=cat.length;i++){ %>  
+                                    <li data-toggle="collapse" data-target="#women2">
+                                        <a href="/loaduserproducts?id=<%=cat[i-1]._id %> "><%= cat[i-1].name  %> </a> </li>
+
+                                        <% }}else { %> 
+                                            <h3 style="color:crimson">No products in the database</h3>
+                                            <% } %> 
+                                        <!-- <ul class="sub-menu collapse show" id="women2">
+                                            <li><a href="#">Midi Dresses</a></li>
+                                            <li><a href="#">Maxi Dresses</a></li>
+                                            <li><a href="#">Prom Dresses</a></li>
+                                            <li><a href="#">Little Black Dresses</a></li>
+                                            <li><a href="#">Mini Dresses</a></li>
+                                        </ul> -->
+                                   
+                                    <!-- Single Item -->
+                                    <!-- <li data-toggle="collapse" data-target="#man2" class="collapsed">
+                                        <a href="#">Man Wear</a>
+                                        <ul class="sub-menu collapse" id="man2">
+                                            <li><a href="#">Man Dresses</a></li>
+                                            <li><a href="#">Man Black Dresses</a></li>
+                                            <li><a href="#">Man Mini Dresses</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Single Item -->
+                                    <!-- <li data-toggle="collapse" data-target="#kids2" class="collapsed">
+                                        <a href="#">Children</a>
+                                        <ul class="sub-menu collapse" id="kids2">
+                                            <li><a href="#">Children Dresses</a></li>
+                                            <li><a href="#">Mini Dresses</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Single Item -->
+                                    <!-- <li data-toggle="collapse" data-target="#bags2" class="collapsed">
+                                        <a href="#">Bags &amp; Purses</a>
+                                        <ul class="sub-menu collapse" id="bags2">
+                                            <li><a href="#">Bags</a></li>
+                                            <li><a href="#">Purses</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Single Item -->
+                                    <!-- <li data-toggle="collapse" data-target="#eyewear2" class="collapsed">
+                                        <a href="#">Eyewear</a>
+                                        <ul class="sub-menu collapse" id="eyewear2">
+                                            <li><a href="#">Eyewear Style 1</a></li>
+                                            <li><a href="#">Eyewear Style 2</a></li>
+                                            <li><a href="#">Eyewear Style 3</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Single Item -->
+                                    <!-- <li data-toggle="collapse" data-target="#footwear2" class="collapsed">
+                                        <a href="#">Footwear</a>
+                                        <ul class="sub-menu collapse" id="footwear2">
+                                            <li><a href="#">Footwear 1</a></li>
+                                            <li><a href="#">Footwear 2</a></li>
+                                            <li><a href="#">Footwear 3</a></li>
+                                        </ul>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="widget price mb-50">
+                        <h6 class="widget-title mb-30">Filter by Price</h6>
+                        <div class="widget-desc">
+                            <div class="slider-range">
+                                <div data-min="0" data-max="3000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="0" data-value-max="1350" data-label-result="Price:">
+                                    <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
+                                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                </div>
+                                <div class="range-price">Price: 0 - 1350</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="widget color mb-70">
+                        <h6 class="widget-title mb-30">Filter by Color</h6>
+                        <div class="widget-desc">
+                            <ul class="d-flex justify-content-between">
+                                <li class="gray"><a href="#"><span>(3)</span></a></li>
+                                <li class="red"><a href="#"><span>(25)</span></a></li>
+                                <li class="yellow"><a href="#"><span>(112)</span></a></li>
+                                <li class="green"><a href="#"><span>(72)</span></a></li>
+                                <li class="teal"><a href="#"><span>(9)</span></a></li>
+                                <li class="cyan"><a href="#"><span>(29)</span></a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="widget size mb-50">
+                        <h6 class="widget-title mb-30">Filter by Size</h6>
+                        <div class="widget-desc">
+                            <ul class="d-flex justify-content-between">
+                                <li><a href="#">XS</a></li>
+                                <li><a href="#">S</a></li>
+                                <li><a href="#">M</a></li>
+                                <li><a href="#">L</a></li>
+                                <li><a href="#">XL</a></li>
+                                <li><a href="#">XXL</a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+
+                    <div class="widget recommended">
+                        <h6 class="widget-title mb-30"></h6>
+
+                        <div class="widget-desc">
+                            <!-- Single Recommended Product -->
+                            <div class="single-recommended-product d-flex mb-30">
+                                <div class="single-recommended-thumb mr-3">
+                                    <!-- <img src="img/product-img/product-10.jpg" alt=""> -->
+                                </div>
+                                <div class="single-recommended-desc">
+                                    <h6></h6>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <!-- Single Recommended Product -->
+                            <div class="single-recommended-product d-flex mb-30">
+                                <div class="single-recommended-thumb mr-3">
+                                    <!-- <img src="img/product-img/product-11.jpg" alt=""> -->
+                                </div>
+                                <div class="single-recommended-desc">
+                                    <h6></h6>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <!-- Single Recommended Product -->
+                            <div class="single-recommended-product d-flex">
+                                <div class="single-recommended-thumb mr-3">
+                                    <!-- <img src="img/product-img/product-12.jpg" alt=""> -->
+                                </div>
+                                <div class="single-recommended-desc">
+                                    <h6></h6>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-9">
+                <div class="shop_grid_product_area">
+                    <div class="row">
+                        <% if(notfound){ %>
+                            <!-- <h3 style="color: crimson;">Product Not Found</h3> -->
+                            
+
+
+                                
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                                <title>Product Not Found</title>
+                                <style>
+                                    
+                                    
+                                    .message {
+                                        font-size: 24px;
+                                        color: #999;
+                                        margin-bottom: 20px;
+                                    }
+                                    .image {
+                                        max-width: 400px;
+                                        margin-bottom: 20px;
+                                    }
+                                    .button {
+                                        display: inline-block;
+                                        padding: 10px 20px;
+                                        background-color: #4CAF50;
+                                        color: #fff;
+                                        text-decoration: none;
+                                        border-radius: 5px;
+                                        transition: background-color 0.3s ease;
+                                    }
+                                    .button:hover {
+                                        background-color: #3e8e41;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="container">
+                                    <h1>Product Not Found</h1>
+                                    
+                                    <p class="message">Sorry, the product you are looking for could not be found.</p>
+                                    <a class="button" href="/loaduserproducts">Go back to Products</a>
+                                </div>
+                            </body>
+                            </html>
+
+
+
+     <% } else{ %>
+                        <%  if(products.length>0){for(let key of products){ %> 
+                            <% if(key.isAvailable==1){ %> 
+                                <% if(!key.quantity==0) {%>
+                        <!-- Single gallery Item -->
+                        <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                             <a href="/singleproduct?id=<%= key._id %>  " class="btn"><img src="/admin/multer/img/<%= key.image[0] %> "  alt="" style="width:255px;height:255px" ></a> 
+                                <!-- <div class="product-quicview">
+                                    <a href="singleproduct" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
+                                </div>   -->
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <h4 class="product-price">₹<%= key.price %> </h4>
+                                <p><%= key.name %> </p>
+                                <!-- Add to Cart -->
+
+                                <!-- <% if(key._id) { %>
+                                    <button class="add-to-cart-btn" data-toggle="modal" style="width: 90px;" id="myBtn" data-target="#exampleModalCenter"
+                                  onclick="del('<%= key._id %>')">Add To Cart</button>
+                                <a id="<%= key._id %>"
+                                  href="/addtocart?id=<%= key._id %> "></a>
+                                <% } %> -->
+
+                                <a href="/addtocart?id=<%=key._id  %> " class="add-to-cart-btn" onclick="deletecontent()" id="myBtn">ADD TO CART</a>
+                                <a href="/addtowishlist?id=<%= key._id %>" class="social-info"><span class="lnr lnr-heart"></span>
+                                    <p class="hover-text"> Add to Wishlist</p></a>
+                                    <a href="/singleproduct?id=<%=key._id%>" class="social-info">
+                                        <span class="lnr lnr-move"></span>
+                                        <p class="hover-text">Details</p>
+                                    </a>  
+                            </div>
+                        </div>  
+                        <% } %>  <% } %> <% } %> <% }else{ %>  
+                            <h4 style="color: crimson;">No more Products ! </h4> 
+                            <br>
+
+                            <a class="btn btn-primary" href="/loaduserproducts" style="margin-left: 10%;">Go back</a>
+                            <% } %> 
+                        <!-- Single gallery Item -->
+                    </div>
+                    </div>
+                </div>
+
+                <!-- <div class="shop_pagination_area wow fadeInUp" data-wow-delay="1.1s">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm">
+                            <div class="pagination">
+                                <a href="?page=<%= previouspage %>" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                    
+                                </a>
+                                
+                                <% for(let i=1; i<=totalpages; i++) { %>
+                                    <% if(currentpage==i) { %>
+                                
+                                <a href="?page=<%= i %>" class="active"><%= i %></a>
+        
+                                <% } else { %>
+                                    
+                                    <li class="page-item"><a class="page-link" href="?page=<%= i %>">
+                                            <%= i %>
+                                        </a></li>
+        
+                                        <% } %>
+                                                    <% } %>
+                                <% } %>
+        
+        
+                               
+                        </ul>
+                    </nav>
+                </div>
+
+
+                <!--modal starting-->
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Confirm to do this</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure  ?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save()">YES</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--modal ending-->
+
+                <div class="d-flex justify-content-center flex-row container-fluid shop_pagination_area wow fadeInUp " id="pagination" data-wow-delay="1.1s">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm">
+                            <% for(let i=1; i<=totalpages;i++) {%> 
+                                <% if(currentpage==i) { %>
+                                <li><a href="?page=<%= previouspage %>" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></li>
+                            <!-- <li class="page-item active"><a class="page-link" href="#">01</a></li> -->
+                            <li class="page-item active"><a class="page-link" href="#"><%=i %> </a></li>
+                            <!-- <li class="page-item"><a class="page-link" href="#">03</a></li> -->
+                            <li><a href="?page=<%= nextpage %>" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                            <% }} %> 
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    var val
+    function del(value) {
+        val = value
+        console.log(val);
+    }
+    function save() {
+        document.getElementById(val).click()
+        console.log(`true ${val}`);
+    }
+    function unB() {
+          document.getElementById(val).click()
+          console.log(`true ${val}`);
+      }
+  </script>
+  
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+  crossorigin="anonymous"></script>
+
+
+<%- include('../layouts/userfooter.ejs') %>

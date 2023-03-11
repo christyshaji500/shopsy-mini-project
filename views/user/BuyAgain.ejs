@@ -1,0 +1,54 @@
+<% if(id){ %>
+<%-include('../layouts/userloggedinheader.ejs')  %>
+<% }else{ %>
+  <%-include('../layouts/userheader.ejs')  %>
+  <% } %>
+
+<div class="container">
+<h3 style="padding-left: 40%; text-decoration: underline; font-weight:bolder; font-size: xx-large;">Buy Again</h3>
+<a class="btn btn-primary" href="/loaduserdata">Go Back</a>
+<br><br>
+
+
+    <table class="table table-light table-striped">
+        
+        <thead>
+          <tr>
+            <th scope="col">sl no.</th>
+            <th scope="col">order</th>
+            
+            
+            <th scope="col">payment</th>
+            <!-- <th scope="col">price</th> -->
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% if(id){ %>
+                <% if(order.length>0){ %>
+                    <% for(let i=1;i<=order.length;i++){ %>
+                       
+          <tr>
+            
+            <th scope="row"><%= i %></th>
+            <td><%=order[i-1]._id %></td>
+            
+            
+            <td><%=order[i-1].payment %></td>
+            <!-- <td><%=order[i-1].totalprice %></td> -->
+            <td><a href="" class="btn btn-info">Add to cart</a></td>
+
+            
+            <% } %><% }else{ %>
+              <p>No Order has Been Done Yet!</p>
+              <% } %>
+          </tr>
+        </tbody>
+        <% }else {%>
+            <p>please login</p>
+            <% } %>
+      </table>
+      
+    </div>
+
+<%-include('../layouts/userfooter.ejs')  %>

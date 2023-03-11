@@ -1,0 +1,46 @@
+<% if(id){ %>
+    <%-include('../layouts/userloggedinheader.ejs')  %>
+    <% }else{ %>
+      <%-include('../layouts/userheader.ejs')  %>
+      <% } %>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                
+                <nav class="d-flex align-items-center">
+                    <a href="index.html"></a>
+                    <a href="category.html"></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Login Box Area =================-->
+<div class="card" id="cardid">
+<section class="login_box_area section_gap" id="success">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="img/sucess image.jpg" alt="">
+                    <!-- <div class="hover">
+                        <h4></h4>
+                        <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+                        <a class="primary-btn" href="registration.html">Create an Account</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-6"id="">
+                <div class="login_form_inner">
+                    <h1 id="texts">Success Your Order Has Been Placed!!</h1>
+                    <br>
+                   <a href="/viewOrder?id=<%= orderId %>" ><h4 id="h4"style="color: blue;">Order ID : <%= orderId %></h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
