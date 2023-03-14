@@ -804,7 +804,7 @@ const loadsuccess = async(req,res)=>{
             console.log('order Built and cart is empty');
         }
          userSession.coupontotal = 0;
-        res.render("orderSuccess",{
+        res.render("ordersuccess",{
             orderId:userSession.currentorder,
             id:userSession.user_id
         })
