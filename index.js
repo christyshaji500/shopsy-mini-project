@@ -27,7 +27,7 @@ app.use(flash());
 
 app.set("view engine", "ejs");
 app.set("views","./views");
-// app.set("views","./views/user")
+ app.set("views","./views/user")
 //  app.set("views","./views/admin")
 
 app.use(function(req, res, next) {
