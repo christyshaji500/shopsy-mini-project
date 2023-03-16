@@ -42,10 +42,10 @@ app.get('*',(req,res)=>{
   res.render('404') 
 })
 
-// app.use('/',(err,req,res,next)=>{
-//   res.status(err.status|| 500)
-//   res.render('error',{error:err})
-// })
+app.use('/',(err,req,res,next)=>{
+  res.status(err.status|| 500)
+  res.render('error',{error:err})
+})
 
 // app.use('/admin',(err,req,res,next)=>{
 //   res.status(err.status|| 500)
