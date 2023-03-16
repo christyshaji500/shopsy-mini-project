@@ -254,7 +254,16 @@ const verifyotp  = async(req,res)=>{
 
 const logout = async(req,res)=>{
     try {   
-        req.session.destroy();
+        userSession = req.session;
+        userSession.user_id = null;
+        userSession.coupontotal = null;
+        userSession.nocoupon = null;
+        userSession.offer = null;
+        userSession.currentorder = null;
+        req.session.currentorder = null;
+        userSession.offer.discount = null;
+        userSession.offer.type = null;
+        userSession.offer.name = null;
         isloggedin=false;
         return res.redirect('/')
     } catch (error) {
