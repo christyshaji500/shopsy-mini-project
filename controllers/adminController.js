@@ -46,7 +46,7 @@ const islogout = async(req,res,next)=>{
 
 const adminlogout = async(req,res)=>{
     try {
-        req.session.destroy();
+        req.session.admin_id=null;
         isAdminloggedin=false;
         return res.render('adminlogin.ejs')
     } catch (error) {
@@ -770,7 +770,7 @@ const AdminReturnProduct = async(req,res,next)=>{
 const AdminNoReturn = async(req,res)=>{
     try {
         adminSession = req.session;
-        if(userSession = req.session){
+        if(adminSession ){
         const id = req.query.id;
 
         await Order.updateOne({_id:id},{$set:{status:'Delivered'}})
